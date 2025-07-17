@@ -16,7 +16,8 @@ This repository contains both the Django backend API and the React frontend for 
 2. (Optional) Create and activate a virtual environment:
    ```bash
    python3 -m venv venv
-   source venv/bin/activate
+   
+   source venv/bin/activate (on Windows: venv\Scripts\activate)
    ```
 3. Install the required Python packages:
    ```bash
@@ -30,7 +31,7 @@ This repository contains both the Django backend API and the React frontend for 
    ```bash
    python manage.py runserver
    ```
-   The API will be available at `http://127.0.0.1:8000/`.
+   The API will be available at `http://127.0.0.1:8000/` go to http://127.0.0.1:8000/admin and login with username "admin" and password "password" to view the database.
 
 ## Running the Frontend
 
