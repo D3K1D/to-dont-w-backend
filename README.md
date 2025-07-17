@@ -16,6 +16,7 @@ This repository contains both the Django backend API and the React frontend for 
 2. (Optional) Create and activate a virtual environment:
    ```bash
    python3 -m venv venv
+   
    source venv/bin/activate (on Windows: venv\Scripts\activate)
    ```
 3. Install the required Python packages:
