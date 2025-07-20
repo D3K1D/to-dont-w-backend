@@ -21,7 +21,7 @@ This repository contains both the Django backend API and the React frontend for 
    ```
 3. Install the required Python packages:
    ```bash
-   pip install django djangorestframework django-allauth dj-rest-auth django-cors-headers
+   pip install django djangorestframework django-allauth dj-rest-auth django-cors-headers requests
    ```
 4. Apply the database migrations:
    ```bash
