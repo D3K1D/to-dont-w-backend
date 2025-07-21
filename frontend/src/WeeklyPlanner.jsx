@@ -53,6 +53,26 @@ export default function WeeklyPlanner({
     return () => clearInterval(interval);
   }, [tasksByDate]);
 
+  function taskOccursOnDate(task, dateObj) {
+    if (task.date === dateObj.toISOString().split("T")[0]) return true;
+
+    let recurrenceArr = [];
+    if (Array.isArray(task.recurrence)) {
+      recurrenceArr = task.recurrence;
+    } else if (
+      typeof task.recurrence === "string" &&
+      task.recurrence.length > 0
+    ) {
+      recurrenceArr = task.recurrence.split(",").map((s) => s.trim());
+    }
+
+    if (recurrenceArr.length > 0) {
+      const weekday = DAYS[dateObj.getDay()];
+      return recurrenceArr.includes(weekday);
+    }
+    return false;
+  }
+
   return (
     <div className="overflow-auto rounded-lg max-h-[80vh] overflow-x-auto">
       {/* Header */}
@@ -95,7 +115,9 @@ export default function WeeklyPlanner({
         {DAYS.map((day, dayIndex) => {
           const colDateObj = formatDate(today, dayIndex);
           const colDate = colDateObj.toISOString().split("T")[0];
-          const tasksForDay = tasksByDate[colDate] || [];
+          const tasksForDay = Object.values(tasksByDate)
+            .flat()
+            .filter((task) => taskOccursOnDate(task, colDateObj));
 
           return (
             <div key={day} className="flex flex-col border-r border-black">
