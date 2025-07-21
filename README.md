@@ -7,6 +7,22 @@ This repository contains both the Django backend API and the React frontend for 
 - **Backend**: Python 3 and `pip`.
 - **Frontend**: Node.js (version 16 or later is recommended) and `npm`.
 
+## Backend Required Python Packages
+
+To avoid compatibility issues, use the following package versions:
+
+- `django`
+- `djangorestframework`
+- `django-allauth==0.54.0`
+- `dj-rest-auth==2.2.5`
+- `django-cors-headers`
+- `requests`
+
+You can install them with:
+```bash
+pip install django djangorestframework django-allauth==0.54.0 dj-rest-auth==2.2.5 django-cors-headers requests
+```
+
 ## Running the Backend
 
 1. Open a terminal and navigate into the `backend` directory:
@@ -16,12 +32,15 @@ This repository contains both the Django backend API and the React frontend for 
 2. (Optional) Create and activate a virtual environment:
    ```bash
    python3 -m venv venv
-   
-   source venv/bin/activate (on Windows: venv\Scripts\activate)
+
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
    ```
 3. Install the required Python packages:
    ```bash
-   pip install django djangorestframework django-allauth dj-rest-auth django-cors-headers requests
+   pip install django djangorestframework django-allauth==0.54.0 dj-rest-auth==2.2.5 django-cors-headers requests
    ```
 4. Apply the database migrations:
    ```bash
@@ -31,7 +50,7 @@ This repository contains both the Django backend API and the React frontend for 
    ```bash
    python manage.py runserver
    ```
-   The API will be available at `http://127.0.0.1:8000/` go to http://127.0.0.1:8000/admin and login with username "admin" and password "password" to view the database.
+   The API will be available at `http://127.0.0.1:8000/`. Go to http://127.0.0.1:8000/admin and login with your admin credentials to view the database.
 
 ## Running the Frontend
 
